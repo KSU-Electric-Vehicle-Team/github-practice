@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "EVT: Check practice submission",
+      "type": "shell",
+      "command": "bash scripts/check-practice.sh",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "EVT: Check coding tutorial",
+      "type": "process",
+      "command": "python",
+      "args": [
+        "scripts/check-speed-tutorial.py"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

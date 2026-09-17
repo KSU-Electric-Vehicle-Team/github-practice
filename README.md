@@ -3,6 +3,11 @@
 This public repository is a safe place to learn the club contribution workflow.
 You do not need to join the KSU Electric Vehicle Team GitHub organization.
 
+Follow the class at
+[ksu-electric-vehicle-team.github.io/github-practice](https://ksu-electric-vehicle-team.github.io/github-practice/).
+The site has separate lesson and troubleshooting tabs and uses the same files
+and checks as this repository.
+
 ## What you will practice
 
 - Forking a public repository
@@ -12,6 +17,8 @@ You do not need to join the KSU Electric Vehicle Team GitHub organization.
 - Opening a pull request
 - Reading an automated check
 - Responding to review
+- Editing and debugging a small Python program in VS Code
+- Running a test before and after a fix
 
 ## Exercise
 
@@ -34,3 +41,10 @@ workflow run.
 Stuck? Open a public issue with a screenshot and the exact error message. Remove
 email addresses, tokens, and other private information before posting.
 
+## Next exercise: code in the full PR loop
+
+After the first practice submission, continue with the
+[VS Code + GitHub loop](tutorials/vscode-github-loop/README.md). It adds a small
+Python bug, a debugger stop, a unit test, a draft pull request, and a partner
+review. Each student works in a username-specific folder so the class can
+practice together without editing the same file.
