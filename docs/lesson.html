@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Step-by-step KSU EVT VS Code and GitHub pull request lesson." />
+    <title>Follow the lesson / KSU EVT GitHub practice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-name" href="index.html">KSU EVT / GitHub practice</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Overview</a>
+          <a href="lesson.html" aria-current="page">Follow the lesson</a>
+          <a href="troubleshooting.html">Troubleshooting</a>
+          <a href="https://github.com/KSU-Electric-Vehicle-Team/github-practice">Repository</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <header class="lesson-header">
+        <p class="eyebrow">Class guide</p>
+        <h1>Follow the lesson</h1>
+        <p class="lede">Keep this page open while working in VS Code. The screenshots use Linux. Use the named view or Command Palette command if a control is in a different place on Windows or macOS.</p>
+      </header>
+
+      <div class="lesson-layout">
+        <nav class="lesson-nav" aria-label="Lesson sections">
+          <a href="#setup">Setup</a>
+          <a href="#open">Open the repository</a>
+          <a href="#edit">1. Edit</a>
+          <a href="#stage">2. Stage</a>
+          <a href="#check">3. Check</a>
+          <a href="#publish">4. Publish</a>
+          <a href="#pull-request">5. Pull request</a>
+          <a href="#review">6. Review</a>
+          <a href="#python">7. Python exercise</a>
+          <a href="#finish">After the merge</a>
+        </nav>
+
+        <article class="lesson-content">
+          <section class="lesson-section" id="setup">
+            <p class="eyebrow">Setup</p>
+            <h2>Install the class tools</h2>
+            <ul class="checklist">
+              <li>Create or sign in to a GitHub account.</li>
+              <li>Install <a href="https://code.visualstudio.com/">VS Code</a>.</li>
+              <li>Install <a href="https://git-scm.com/downloads">Git</a>.</li>
+              <li>Download the <strong>Lite</strong> pack for your operating system from the <a href="https://github.com/KSU-Electric-Vehicle-Team/vscode-extension-packs/releases/tag/v0.2.0">EVT extension pack release</a>.</li>
+            </ul>
+            <div class="callout">
+              <strong>Install the extension pack</strong>
+              <p>Open the Command Palette and run <strong>Extensions: Install from VSIX...</strong>. Select the downloaded <code>.vsix</code> file.</p>
+            </div>
+          </section>
+
+          <section class="lesson-section" id="open">
+            <p class="eyebrow">Open the repository</p>
+            <h2>Fork, clone, and check the remotes</h2>
+            <ol class="plain-list">
+              <li><a href="https://github.com/KSU-Electric-Vehicle-Team/github-practice/fork">Fork the practice repository</a> to your GitHub account.</li>
+              <li>In VS Code, run <strong>Git: Clone</strong> from the Command Palette.</li>
+              <li>Clone your fork and open the repository folder.</li>
+              <li>If VS Code asks whether you trust the authors, confirm that the open folder is your <code>github-practice</code> fork.</li>
+            </ol>
+            <pre><code>git status
+git remote -v</code></pre>
+            <p><code>origin</code> should point to your fork. Add the team repository if <code>upstream</code> is missing:</p>
+            <pre><code>git remote add upstream https://github.com/KSU-Electric-Vehicle-Team/github-practice.git</code></pre>
+          </section>
+
+          <section class="lesson-section" id="edit">
+            <p class="step-number">01 / Edit</p>
+            <h2>Create a branch and edit your file</h2>
+            <div class="step">
+              <p>Run <strong>Git: Create Branch</strong> and name the branch <code>practice-YOUR-GITHUB-USERNAME</code>.</p>
+            </div>
+            <p>Copy <code>practice/template.md</code> to <code>practice/YOUR-GITHUB-USERNAME.md</code>. Replace every <code>TODO</code>, then save the file.</p>
+            <img class="screenshot" src="assets/screenshots/01-edit-your-file.png" alt="A username-specific practice file open in the VS Code editor" />
+            <p class="caption">Confirm the branch in the status bar and edit only your username file.</p>
+            <div class="callout">
+              <strong>Existing pull request</strong>
+              <p>If you already have an open practice pull request, use its branch and file. Do not create a duplicate pull request.</p>
+            </div>
+          </section>
+
+          <section class="lesson-section" id="stage">
+            <p class="step-number">02 / Stage</p>
+            <h2>Review and stage the change</h2>
+            <p>Open <strong>View &gt; Source Control</strong>. Select the changed file and read the diff. Check the filename, removed lines, added lines, and any unrelated changes.</p>
+            <img class="screenshot" src="assets/screenshots/02-inspect-diff.png" alt="An unstaged practice file shown in the VS Code Source Control view" />
+            <p class="caption">Select the changed file to inspect it before staging.</p>
+            <p>Select the <strong>+</strong> beside your file. It should move to <strong>Staged Changes</strong>. Open the staged diff and read it again.</p>
+            <img class="screenshot" src="assets/screenshots/03-stage-the-file.png" alt="The practice file listed under Staged Changes in VS Code" />
+            <p class="caption">Stage the intended file. Do not select Stage All for this exercise.</p>
+          </section>
+
+          <section class="lesson-section" id="check">
+            <p class="step-number">03 / Check</p>
+            <h2>Run the practice check</h2>
+            <p>Open the VS Code terminal at the repository root and run:</p>
+            <pre><code>bash scripts/check-practice.sh</code></pre>
+            <p>Continue when the terminal prints <code>Practice files look good.</code></p>
+            <img class="screenshot" src="assets/screenshots/04-run-the-check.png" alt="The practice check passing in the VS Code terminal" />
+            <p class="caption">Use the script result to verify the exercise.</p>
+          </section>
+
+          <section class="lesson-section" id="publish">
+            <p class="step-number">04 / Publish</p>
+            <h2>Commit and publish the branch</h2>
+            <p>Enter a one-line commit message in Source Control. For example:</p>
+            <pre><code>docs: add YOUR-GITHUB-USERNAME practice submission</code></pre>
+            <p>Select <strong>Commit</strong>, then <strong>Publish Branch</strong>. Publish to your fork.</p>
+            <img class="screenshot" src="assets/screenshots/05-publish-branch.png" alt="The Publish Branch button in the VS Code Source Control view" />
+            <p class="caption">Check the current branch before publishing.</p>
+          </section>
+
+          <section class="lesson-section" id="pull-request">
+            <p class="step-number">05 / Pull request</p>
+            <h2>Open a draft pull request</h2>
+            <ol class="plain-list">
+              <li>Open the <strong>GitHub Pull Requests</strong> view.</li>
+              <li>Run <strong>GitHub Pull Requests: Create Pull Request</strong>.</li>
+              <li>Set the head to your fork and practice branch.</li>
+              <li>Set the base to <code>KSU-Electric-Vehicle-Team/github-practice</code> and <code>main</code>.</li>
+              <li>Write what changed and how you checked it.</li>
+              <li>Create the pull request as a draft.</li>
+            </ol>
+            <img class="screenshot" src="assets/screenshots/06-create-pull-request.png" alt="The Create Pull Request view in VS Code" />
+            <p class="caption">Verify the head, base, title, description, and changed files.</p>
+            <p>Open the pull request in VS Code. Read the file list, diff, description, and <code>quality</code> check.</p>
+            <img class="screenshot" src="assets/screenshots/07-review-pull-request.png" alt="A draft pull request open in VS Code" />
+            <p class="caption">First-time contributors may need an owner to approve the workflow run.</p>
+          </section>
+
+          <section class="lesson-section" id="review">
+            <p class="step-number">06 / Review</p>
+            <h2>Review with a partner</h2>
+            <h3>Author</h3>
+            <ol class="plain-list">
+              <li>Confirm the <code>quality</code> check passed.</li>
+              <li>Mark the draft ready for review.</li>
+              <li>Send the pull request URL to a partner.</li>
+            </ol>
+            <h3>Reviewer</h3>
+            <ol class="plain-list">
+              <li>Open the pull request in the GitHub Pull Requests view.</li>
+              <li>Check out the branch for inspection.</li>
+              <li>Read the diff and run <code>bash scripts/check-practice.sh</code>.</li>
+              <li>Leave a comment, request a change, or approve the pull request.</li>
+            </ol>
+            <div class="callout">
+              <strong>Requested change</strong>
+              <p>Update the same branch, rerun the check, commit, and push. The existing pull request updates automatically.</p>
+            </div>
+          </section>
+
+          <section class="lesson-section" id="python">
+            <p class="step-number">07 / Python exercise</p>
+            <h2>Debug and test the conversion function</h2>
+            <p>Open <code>tutorials/vscode-github-loop/template</code>. Copy it to a folder named with your GitHub username.</p>
+            <ol class="plain-list">
+              <li>Select the Python environment from last class.</li>
+              <li>Run the program and reproduce the incorrect speed result.</li>
+              <li>Add a breakpoint in <code>to_kmh</code> and inspect <code>mps</code>.</li>
+              <li>Run the unit test and confirm it fails.</li>
+              <li>Fix the conversion and run the test again.</li>
+              <li>Commit and push the fix to the same pull request.</li>
+            </ol>
+          </section>
+
+          <section class="lesson-section" id="finish">
+            <p class="eyebrow">After the merge</p>
+            <h2>Sync main</h2>
+            <pre><code>git switch main
+git fetch upstream
+git pull --ff-only upstream main
+git push origin main</code></pre>
+            <p>Delete the finished branch only after confirming the pull request was merged.</p>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>KSU Electric Vehicle Team</p>
+        <p><a href="troubleshooting.html">Open troubleshooting</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

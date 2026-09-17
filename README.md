@@ -3,6 +3,11 @@
 This public repository is a safe place to learn the club contribution workflow.
 You do not need to join the KSU Electric Vehicle Team GitHub organization.
 
+Follow the class at
+[ksu-electric-vehicle-team.github.io/github-practice](https://ksu-electric-vehicle-team.github.io/github-practice/).
+The site has separate lesson and troubleshooting tabs and uses the same files
+and checks as this repository.
+
 ## What you will practice
 
 - Forking a public repository

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Troubleshooting for the KSU EVT GitHub practice lesson." />
+    <title>Troubleshooting / KSU EVT GitHub practice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-name" href="index.html">KSU EVT / GitHub practice</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Overview</a>
+          <a href="lesson.html">Follow the lesson</a>
+          <a href="troubleshooting.html" aria-current="page">Troubleshooting</a>
+          <a href="https://github.com/KSU-Electric-Vehicle-Team/github-practice">Repository</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <header class="lesson-header">
+        <p class="eyebrow">Class reference</p>
+        <h1>Troubleshooting</h1>
+        <p class="lede">Check the branch, remotes, and exact error before changing anything.</p>
+      </header>
+
+      <section class="section">
+        <div class="grid">
+          <article class="card">
+            <h3>The commit is missing on GitHub</h3>
+            <p>Check the current branch. Commit the staged file, then push or publish that branch.</p>
+          </article>
+          <article class="card">
+            <h3>The pull request shows no changes</h3>
+            <p>Check the head repository, head branch, base repository, and base branch. Confirm that you pushed.</p>
+          </article>
+          <article class="card">
+            <h3>The quality check is waiting</h3>
+            <p>First-time contributors may need an owner to approve the workflow run.</p>
+          </article>
+          <article class="card">
+            <h3>The reviewer picker is unavailable</h3>
+            <p>Send the pull request URL to the reviewer and ask a team lead to assign them.</p>
+          </article>
+          <article class="card">
+            <h3>A push is rejected</h3>
+            <p>Stop and inspect <code>git status</code>, the current branch, and <code>git remote -v</code> with an instructor.</p>
+          </article>
+          <article class="card">
+            <h3>There is a merge conflict</h3>
+            <p>Read Current, Incoming, and Result. Keep the intended final content. Use Accept Both only when both changes belong.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Ask for help</p>
+          <h2>Share the useful details</h2>
+        </div>
+        <ul class="checklist">
+          <li>The action you attempted</li>
+          <li>The exact error message</li>
+          <li>The current branch</li>
+          <li>The repository URLs from <code>git remote -v</code></li>
+        </ul>
+        <div class="callout">
+          <strong>Remove private information</strong>
+          <p>Do not post tokens, email addresses, private repository names, or other personal information in a public issue or screenshot.</p>
+        </div>
+        <div class="button-row">
+          <a class="button" href="https://github.com/KSU-Electric-Vehicle-Team/github-practice/issues/new">Open an issue</a>
+          <a class="button button--secondary" href="lesson.html">Return to the lesson</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>KSU Electric Vehicle Team</p>
+        <p><a href="https://github.com/KSU-Electric-Vehicle-Team/github-practice">Open the repository</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
