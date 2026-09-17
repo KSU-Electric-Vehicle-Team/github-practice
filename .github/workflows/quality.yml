@@ -19,3 +19,5 @@ jobs:
         uses: actions/checkout@v7
       - name: Check practice submissions
         run: bash scripts/check-practice.sh
+      - name: Check coding tutorial submissions
+        run: python scripts/check-speed-tutorial.py
